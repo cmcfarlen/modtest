@@ -36,3 +36,22 @@ drwxr-xr-x 1 root root 56 Jun 29 15:18 16
 ```
 
 So I created a symlink from 16 -> 16.0.6 and that fixed that.
+
+## Mac notes
+
+Download and install cmake 3.27 or later from: https://cmake.org/download/
+brew install llvm
+brew install ninja
+
+Create a usage script (or update profile):
+```
+export PATH="/Applications/CMake.app/Contents/bin:/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:$PATH"
+# For libc++
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib -L/opt/homebrew/opt/llvm/lib/c++ -Wl,-rpath,/opt/homebrew/opt/llvm/lib/c++"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+```
+
+For clion, you can use the above as an "environment file" for a toolchain.
+
+

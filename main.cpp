@@ -1,9 +1,9 @@
 import a;
 
-#include <iostream>
+import fmt;
 
 int main() {
-    std::cout << "foo = " << foo() << "\n";
+    fmt::println("foo module = {}", foo());
 
     return 0;
 }
