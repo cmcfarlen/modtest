@@ -10,6 +10,14 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(CMAKE_CXX_STANDARD 20)
 
+function(add_module mod_name)
+    add_library(${mod_name})
+    target_sources(${mod_name}
+            PUBLIC
+            FILE_SET cxx_modules TYPE CXX_MODULES FILES
+            ${ARGN})
+endfunction()
+
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 include(CPM)
 
